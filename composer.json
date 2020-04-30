@@ -1,0 +1,28 @@
+{
+    "name": "tir/slider",
+    "description": "The Slider manager for Tir framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tirdad Abbasi",
+            "email": "abbasi.tirdad@gmail.com"
+        }
+    ],
+    "require": {
+        "tir/crud": "dev-master"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Tir\\Slider\\": "src/"
+        }
+    },
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tir\\Slider\\SliderServiceProvider"
+            ]
+        }
+    }
+}
