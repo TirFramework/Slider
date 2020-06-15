@@ -42,9 +42,9 @@ class SliderSlide extends CrudModel
      * @var array
      */
     protected $casts = [
-        'options' => 'array',
+        'options'            => 'array',
         'open_in_new_window' => 'boolean'
-        ];
+    ];
 
 
     /**
@@ -90,111 +90,124 @@ class SliderSlide extends CrudModel
     {
         $fields = [
             [
-                'name' => 'basic_information',
-                'type' => 'group',
-                'visible'    => 'ce',
-                'tabs'=>  [
+                'name'    => 'basic_information',
+                'type'    => 'group',
+                'visible' => 'ce',
+                'tabs'    => [
                     [
-                        'name'  => 'slide_information',
-                        'type'  => 'tab',
-                        'visible'    => 'ce',
-                        'fields' => [
+                        'name'    => 'slide_information',
+                        'type'    => 'tab',
+                        'visible' => 'ce',
+                        'fields'  => [
                             [
-                                'name'       => 'id',
-                                'type'       => 'text',
-                                'visible'    => 'io',
+                                'name'    => 'id',
+                                'type'    => 'text',
+                                'visible' => 'io',
                             ],
                             [
-                                'name'      => 'slider_id',
-                                'display'   => 'slider',
-                                'type'      => 'relation',
-                                'relation'  => ['slider', 'name'],
-                                'visible'   => 'ce',
+                                'name'     => 'slider_id',
+                                'display'  => 'slider',
+                                'type'     => 'relation',
+                                'relation' => ['slider', 'name'],
+                                'visible'  => 'ce',
                             ],
                             [
-                                'name'      => 'file',
-                                'type'      => 'image',
-                                'visible'   => 'ce',
+                                'name'    => 'file',
+                                'type'    => 'image',
+                                'visible' => 'ce',
                             ],
                             [
-                                'name'      => 'caption_1',
-                                'type'      => 'text',
-                                'visible'   => 'ice',
+                                'name'    => 'caption_1',
+                                'type'    => 'text',
+                                'visible' => 'ice',
                             ],
                             [
-                                'name'      => 'caption_2',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
+                                'name'    => 'caption_2',
+                                'type'    => 'text',
+                                'visible' => 'ce',
                             ],
                             [
-                                'name'      => 'caption_3',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
+                                'name'    => 'caption_3',
+                                'type'    => 'text',
+                                'visible' => 'ce',
                             ],
                             [
-                                'name'      => 'call_to_action_text',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
+                                'name'    => 'call_to_action_text',
+                                'type'    => 'text',
+                                'visible' => 'ce',
                             ],
                             [
-                                'name'      => 'call_to_action_url',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
+                                'name'    => 'call_to_action_url',
+                                'type'    => 'text',
+                                'visible' => 'ce',
                             ],
                             [
-                                'name'      => 'options[caption_1][delay]',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
+                                'name'    => 'open_in_new_window',
+                                'type'    => 'select',
+                                'data'    => ['1' => trans('slider::panel.yes'), '0' => trans('slider::panel.no')],
+                                'visible' => 'ce',
                             ],
                             [
-                                'name'      => 'options[caption_1][effect]',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
-                            ],
-                            [
-                                'name'      => 'options[caption_2][delay]',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
-                            ],
-                            [
-                                'name'      => 'options[caption_2][effect]',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
-                            ],
-                            [
-                                'name'      => 'options[caption_3][delay]',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
-                            ],
-                            [
-                                'name'      => 'options[caption_3][effect]',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
-                            ],
-                            [
-                                'name'      => 'options[call_to_action][delay]',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
-                            ],
-                            [
-                                'name'      => 'options[call_to_action][effect]',
-                                'type'      => 'text',
-                                'visible'   => 'ce',
-                            ],
+                                'name'    => 'position',
+                                'type'    => 'position',
+                                'visible' => 'ce',
+                            ]
 
+                        ]
+                    ],
+                    [
+                        'name'    => 'options',
+                        'type'    => 'tab',
+                        'visible' => 'ce',
+                        'fields'  => [
                             [
-                                'name'       => 'open_in_new_window',
-                                'type'       => 'select',
-                                'data'       => ['1'=>trans('slider::panel.yes'),'0'=>trans('slider::panel.no')],
-                                'visible'    => 'ce',
+                                'name'    => 'options[caption_1][delay]',
+                                'display' => 'caption_1_delay',
+                                'type'    => 'text',
+                                'visible' => 'ce',
                             ],
                             [
-                                'name'       => 'position',
-                                'type'       => 'position',
-                                'visible'    => 'ce',
+                                'name'    => 'options[caption_1][effect]',
+                                'display' => 'caption_1_effect',
+                                'type'    => 'text',
+                                'visible' => 'ce',
                             ],
-
-
+                            [
+                                'name'    => 'options[caption_2][delay]',
+                                'display' => 'caption_2_delay',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'options[caption_2][effect]',
+                                'display' => 'caption_2_effect',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'options[caption_3][delay]',
+                                'display' => 'caption_3_delay',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'options[caption_3][effect]',
+                                'display' => 'caption_3_effect',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'options[call_to_action][delay]',
+                                'display' => 'call_to_action_delay',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'options[call_to_action][effect]',
+                                'display' => 'call_to_action_effect',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
                         ]
                     ]
                 ]
@@ -270,7 +283,6 @@ class SliderSlide extends CrudModel
             ->pluck('id')
             ->diff(array_pluck($slides, 'id'));
     }
-
 
 
     //Relations methods ///////////////////////////////////////////////////////////////////////////////////////////////
