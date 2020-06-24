@@ -213,8 +213,7 @@ class SliderSlide extends CrudModel
                 ]
             ]
         ];
-        return json_decode(json_encode($fields));
-    }
+        return $fields;}
 
     //Additional methods //////////////////////////////////////////////////////////////////////////////////////////////
 
