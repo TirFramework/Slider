@@ -19,6 +19,7 @@ return [
     'dots'                  => 'نمایش نقطه',
     'slide_set'               => 'دسته بندی اسلاید‌ها',
     'slides'                => 'اسلاید‌ها',
+    'sliders'                => 'اسلاید‌رها',
 
     //sliderSlide
     'slide_information'     => 'اطلاعات اسلاید',
