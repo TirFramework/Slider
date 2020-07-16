@@ -42,7 +42,10 @@ return [
     'caption_3_delay'       => 'تاخیر نمایش عنوان ۳',
     'caption_3_effect'      => 'افکت نمایش عنوان ۳',
     'call_to_action_delay'  => 'تاخیر نمایش دکمه',
-    'call_to_action_effect' => 'افکت نمایش دکمه'
+    'call_to_action_effect' => 'افکت نمایش دکمه',
+    'caption_1_color'       => 'رنگ عنوان ۱',
+    'caption_2_color'       => 'رنگ عنوان ۲',
+    'caption_3_color'       => 'رنگ عنوان ۳',
 
 
 ];

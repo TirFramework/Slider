@@ -88,6 +88,19 @@ class SliderSlide extends CrudModel
      */
     public function getFields()
     {
+        $effects = [
+            "fadeInUp"=>"fadeInUp",
+            "fadeInDown"=>"fadeInDown",
+            "fadeInLeft"=>"fadeInLeft",
+            "fadeInRight"=>"fadeInRight",
+            "lightSpeedIn"=>"lightSpeedIn",
+            "slideInUp"=>"slideInUp",
+            "slideInDown"=>"slideInDown",
+            "slideInLeft"=>"slideInLeft",
+            "slideInRight"=>"slideInRight",
+            "zoomIn"=>"zoomIn"
+        ];
+        
         $fields = [
             [
                 'name'    => 'basic_information',
@@ -163,49 +176,82 @@ class SliderSlide extends CrudModel
                             [
                                 'name'    => 'options[caption_1][delay]',
                                 'display' => 'caption_1_delay',
+                                'col'     => 'col-sm-4',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'options[caption_1][color]',
+                                'display' => 'caption_1_color',
+                                'col'     => 'col-sm-4',
                                 'type'    => 'text',
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'options[caption_1][effect]',
                                 'display' => 'caption_1_effect',
-                                'type'    => 'text',
+                                'col'     => 'col-sm-4',
+                                'type'    => 'select',
+                                'data'    => $effects,
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'options[caption_2][delay]',
                                 'display' => 'caption_2_delay',
+                                'col'     => 'col-sm-4',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'options[caption_2][color]',
+                                'display' => 'caption_2_color',
+                                'col'     => 'col-sm-4',
                                 'type'    => 'text',
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'options[caption_2][effect]',
                                 'display' => 'caption_2_effect',
-                                'type'    => 'text',
+                                'col'     => 'col-sm-4',
+                                'type'    => 'select',
+                                'data'    => $effects,
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'options[caption_3][delay]',
                                 'display' => 'caption_3_delay',
+                                'col'     => 'col-sm-4',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'options[caption_3][color]',
+                                'display' => 'caption_3_color',
+                                'col'     => 'col-sm-4',
                                 'type'    => 'text',
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'options[caption_3][effect]',
                                 'display' => 'caption_3_effect',
-                                'type'    => 'text',
+                                'col'     => 'col-sm-4',
+                                'type'    => 'select',
+                                'data'    => $effects,
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'options[call_to_action][delay]',
                                 'display' => 'call_to_action_delay',
+                                'col'     => 'col-sm-4',
                                 'type'    => 'text',
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'options[call_to_action][effect]',
                                 'display' => 'call_to_action_effect',
-                                'type'    => 'text',
+                                'col'     => 'col-sm-4',
+                                'type'    => 'select',
+                                'data'    => $effects,
                                 'visible' => 'ce',
                             ],
                         ]
@@ -213,12 +259,13 @@ class SliderSlide extends CrudModel
                 ]
             ]
         ];
-        return $fields;}
+        return $fields;
+    }
 
     //Additional methods //////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * The "booting" method of the model.
+     * The ";booting" method of the model.
      *
      * @return void
      */
@@ -234,7 +281,7 @@ class SliderSlide extends CrudModel
 
     public function clearCache()
     {
-        Cache::tags(["sliders.{$this->id}"])->flush();
+        Cache::tags(["sliders .{$this->id}"])->flush();
     }
 
     public static function findWithSlides($id)
@@ -243,8 +290,8 @@ class SliderSlide extends CrudModel
             return;
         }
 
-        return Cache::tags(["sliders.{$id}"])
-            ->rememberForever("sliders.{$id}:" . locale(), function () use ($id) {
+        return Cache::tags(["sliders .{$id}"])
+            ->rememberForever("sliders .{$id}:" . locale(), function () use ($id) {
                 return static::with('slides')->find($id);
             });
     }
