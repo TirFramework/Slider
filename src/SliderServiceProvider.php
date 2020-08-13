@@ -26,6 +26,9 @@ class SliderServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (! config('app.installed')) {
+            return;
+        }
         $this->loadRoutesFrom(__DIR__.'/Routes/admin.php');
         $this->loadMigrationsFrom(__DIR__ .'/Database/Migrations');
         $this->loadViewsFrom(__DIR__.'/Resources/Views', 'slider');
