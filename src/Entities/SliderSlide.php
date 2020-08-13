@@ -77,6 +77,7 @@ class SliderSlide extends CrudModel
     {
         return [
             'file' => 'required',
+            'slider_id' => 'required',
         ];
     }
 
