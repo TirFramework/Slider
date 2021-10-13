@@ -4,10 +4,10 @@ namespace Tir\Slider\Entities;
 
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Support\Facades\Cache;
-use Tir\Crud\Support\Eloquent\CrudModel;
+use Tir\Crud\Support\Eloquent\BaseScaffold;
 use Tir\Crud\Support\Facades\Crud;
 
-class Slider extends CrudModel
+class Slider extends BaseScaffold
 {
     //Additional trait insert here
 
